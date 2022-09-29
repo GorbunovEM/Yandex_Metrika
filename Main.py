@@ -15,7 +15,6 @@ def eval(type ,report):
         created_responce = report.creating_query(type)
         request_id = json.loads(created_responce.text)['log_request']['request_id']
         status, processed_responce = report.checking_status(request_id, type)
-#        print('request_id: {0},checked status: {1}'.format(request_id, status))
         return status, processed_responce, request_id
     else:
         return CreationQueryError('Page is not available')
@@ -28,7 +27,6 @@ def check_readiness(status, report, request_id, type):
     while status == 'created':
         time.sleep(TIME_TO_SLEEP)
         status, processed_responce = report.checking_status(request_id, type)
-#        print('request_id: {0},cur status: {1}'.format(request_id, status))
         i += 1
         if i > LOOP_ERROR_N:
             raise LoopingError('request_id:{0}'.format(request_id))
@@ -42,19 +40,20 @@ def final(processed_responce, report, request_id, type):
 
 if __name__ == '__main__':
 
-    TOKEN = 'AQAAAAANOk9xAAflr7tO9hiEkUpaqJW-iPiucB8'
+    TOKEN = 'XXXXXXXXXXXXXXXXXXXXXXXXXXXX'
     COUNTER_ID = 44147844
     START_DATE = (datetime.datetime.today() - datetime.timedelta(days=1)).strftime("%Y-%m-%d")
     END_DATE = (datetime.datetime.today() - datetime.timedelta(days=1)).strftime("%Y-%m-%d")
     type = 'hits'
+    #type = 'visits'
 
     DB_HOST = 'localhost'
     DB_NAME = 'testdb'
-    DB_LOGIN = 'paplini'
-    DB_PASS = 'paplini'
-    DB_PORT = 54322
-    ssh_username = 'paplini'
-    ssh_password = 'v14polE1!'
+    DB_LOGIN = 'XXXXX'
+    DB_PASS = 'XXXXX'
+    DB_PORT = XXXX
+    ssh_username = 'XXXXX'
+    ssh_password = 'XXXXX'
 
     a = create_obj(TOKEN, COUNTER_ID, START_DATE, END_DATE)
     b = eval(type, a)
