@@ -1,4 +1,4 @@
-# create_database_yandex_metrika
+# Yandex_Metrika
 get data from yandex metrika and update database (postgreSQL) on web server.
 
 Metrika.py - class for using yandex metrika API to create request, check status and get data. Data is transformated in pandas dataframe.
