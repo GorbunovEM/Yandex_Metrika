@@ -15,7 +15,7 @@ class Fill_Database():
 
     def start_ssh_tunnel(self, ssh_username, ssh_password):
         server = SSHTunnelForwarder(
-            ('151.248.114.190', 22),
+            ('XXX.XXX.XXX.XXX', XXX),
         # ssh_private_key="</path/to/private/ssh/key>",
         ### in my case, I used a password instead of a private key
             ssh_username=ssh_username,
